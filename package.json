@@ -1,0 +1,17 @@
+{
+  "name": "real-success-leaderboard",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "@hubspot/api-client": "^8.8.0",
+    "axios": "^1.3.4",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "open": "^8.4.2"
+  }
+}

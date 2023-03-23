@@ -10,7 +10,7 @@ exports.listsObject = async (req, res) => {
 
   listData.listIDs.forEach((item) => givenIDs.push(item.list_id));
 
-  console.log('GIVEN IDS: ', givenIDs);
+  // console.log('GIVEN IDS: ', listData);
 
   // Set the request headers
   const headers = {
@@ -18,18 +18,21 @@ exports.listsObject = async (req, res) => {
   };
 
   const resLists = await Promise.all(
-    givenIDs.map(async (listId, index) => {
-      const url = `https://api.hubapi.com/contacts/v1/lists/${listId}`;
+    listData.listIDs.map(async (listId, index) => {
+      console.log('List ID: ', listId.list_id, 'Speaker: ', listId.speaker);
+      const url = `https://api.hubapi.com/contacts/v1/lists/${listId.list_id}`;
       const response = await axios.get(url, { headers });
       const list = response.data;
       const name = list.name;
       const size = list.metaData.size;
       const listID = list.listId;
+      const speaker = listId.speaker;
       return {
         name,
         listID,
         size,
         index,
+        speaker,
       };
     })
   );

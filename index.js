@@ -3,7 +3,7 @@ const app = express();
 const opn = require('open');
 const cors = require('cors');
 const { listsObject } = require('./controllers/contacts');
-const port = process.env.PORT || 2000;
+const port = process.env.PORT || 8000;
 app.use(express.json({ limit: '10kb' }));
 app.use(express.urlencoded({ extended: true, limit: '10kb' }));
 
